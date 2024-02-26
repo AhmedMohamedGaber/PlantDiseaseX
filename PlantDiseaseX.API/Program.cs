@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PlantDiseaseX.Core.Entities;
+using PlantDiseaseX.Core.Repositories;
+using PlantDiseaseX.Repository;
 using PlantDiseaseX.Repository.Data;
 
 namespace PlantDiseaseX.API
@@ -23,6 +26,12 @@ namespace PlantDiseaseX.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            //builder.Services.AddScoped<IGenericRepository<Plant>,GenericRepository<Plant>>();
+            //builder.Services.AddScoped<IGenericRepository<Plantcategory>, GenericRepository<Plantcategory>>();
+            //builder.Services.AddScoped<IGenericRepository<Season>, GenericRepository<Season>>();
+
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
             #endregion
 
             #region Update-Database during run
@@ -40,6 +49,7 @@ namespace PlantDiseaseX.API
                 var dbContext = services.GetRequiredService<PlantContext>();  //Here,We Ask CLR for creating object from dbContext Explicitly
                 await dbContext.Database.MigrateAsync();  // always Update-Database during run
 
+                await PlantContextSeed.SeedAsync(dbContext);
             }
             catch (Exception ex)
             {
