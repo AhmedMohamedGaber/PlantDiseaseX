@@ -1,0 +1,99 @@
+﻿@using PlantDiseaseX.Core
+@using PlantDiseaseX.Core.Entities
+@model PlantViewModel
+@inject IUnitOfWork unitOfWork
+@{
+    var Categories = new SelectList(unitOfWork.Repository<Plantcategory>().GetAllAsync().Result, "Id", "Name");
+    var Seasons1 = new SelectList(unitOfWork.Repository<Season>().GetAllAsync().Result, "Id", "Name");
+
+}
+
+   @* <div class="form-group">
+            <label asp-for="Image" class="col-form-label"></label>
+    <input asp-for="Image" class="form-control" onchange="previewImage(this)" />
+        </div>
+<img id="imagePreview" src="#" alt="Selected Image" style="max-width: 200px; max-height: 200px; display: none;" />
+  *@
+
+
+@* <div class="form-group" enctype="multipart/form-data">
+   
+    <label asp-for="Image" class="col-form-label">Upload Image : </label>
+    <input type="file"  asp-for="Image" class="form-control" accept="image/*" />
+     <span asp-validation-for="Image" class="text-danger" style="color:red"></span>
+    
+</div> 
+ *@
+
+<div class="form-group  col-md-6">
+    <label asp-for="Name" class="col-form-label"></label>
+    <input  asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label asp-for="PlantCategory" class="col-form-label"></label>
+        <select style="color:slategray" class="form-control" asp-for="PlantCategoryId" asp-items="Categories">
+            <option value="@null">-- Select Category --</option>
+        </select>
+    </div>
+
+
+
+    <div class="form-group  col-md-6">
+        <label asp-for="PlantSeason" class="col-form-label"></label>
+        <select style="color:slategray" class="form-control" asp-for="PlantSeasonId" asp-items="Seasons1">
+            <option value="@null">-- Select Season --</option>
+        </select>
+    </div>
+</div>
+ 
+<div class="form-group  col-md-8">
+    <label asp-for="Description" class="col-form-label"></label>
+    <textarea asp-for="Description" class="form-control"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-row">
+    <div class="form-group  col-md-6">
+        <label asp-for="GeneralUse" class="col-form-label"></label>
+        <input asp-for="GeneralUse" class="form-control" />
+        <span asp-validation-for="GeneralUse" class="text-danger"></span>
+    </div>
+    <div class="form-group  col-md-6">
+        <label asp-for="MedicalUse" class="col-form-label"></label>
+        <input asp-for="MedicalUse" class="form-control" />
+        <span asp-validation-for="MedicalUse" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label asp-for="diseases" class="col-form-label">Disease</label>
+        <input asp-for="diseases" class="form-control" />
+        <span asp-validation-for="diseases" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-6">
+        <label asp-for="treatment" class="col-form-label">Treatment</label>
+        <input asp-for="treatment" class="form-control" />
+        <span asp-validation-for="treatment" class="text-danger"></span>
+    </div>
+</div>
+<div class="form-row">
+    
+    <div class="form-group col-md-4">
+        <label asp-for="Properties" class="col-form-label"></label>
+        <input asp-for="Properties" class="form-control" />
+        <span asp-validation-for="Properties" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-4">
+        <label asp-for="Warnings" class="col-form-label"></label>
+        <input asp-for="Warnings" class="form-control" />
+        <span asp-validation-for="Warnings" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-4">
+        <label asp-for="season" class="col-form-label"></label>
+        <input asp-for="season" class="form-control" />
+        <span asp-validation-for="season" class="text-danger"></span>
+    </div>
+</div>
+

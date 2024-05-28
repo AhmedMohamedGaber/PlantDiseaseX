@@ -57,7 +57,20 @@ namespace PlantDiseaseX.Repository.Data
 
             }
 
+            //if (!dbContext.NewsArticles.Any())
+            //{
+            //    var newarticlesData = File.ReadAllText("../PlantDiseaseX.Repository/Data/DataSeed/NewsArticles.json");
+            //    var newarticles = JsonSerializer.Deserialize<List<Plant>>(newarticlesData);
 
+            //    if (newarticles?.Count > 0)
+            //    {
+            //        foreach (var newarticle in newarticles)
+            //            await dbContext.Set<Plant>().AddAsync(newarticle);
+
+            //        await dbContext.SaveChangesAsync();
+            //    }
+
+            //}
         }
     }
 }

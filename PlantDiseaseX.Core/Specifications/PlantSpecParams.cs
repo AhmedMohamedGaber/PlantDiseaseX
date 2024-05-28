@@ -2,8 +2,8 @@
 {
     public class PlantSpecParams
     {
-        private const int MaxPageSize = 10;
-        private int pageSize = 5;
+        private const int MaxPageSize = 500;
+        private int pageSize = 10;
 
         public int PageSize
         {

@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace PlantDiseaseX.Repository.Data.Config
 {
-    internal class PlantCategoryConfigurations : IEntityTypeConfiguration<Plantcategory>
+    public class PlantCategoryConfigurations : IEntityTypeConfiguration<Plantcategory>
     {
         public void Configure(EntityTypeBuilder<Plantcategory> builder)
         {
             builder.Property(C => C.Name).IsRequired();
+            builder.HasIndex(c => c.Name).IsUnique();
         }
     }
 

@@ -1,0 +1,133 @@
+﻿@* 
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/Registration/images/signin-image.jpg" alt="sing up image"></figure>
+                <a asp-action="Register" class="signup-image-link">Create an account</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Sign in</h2>
+                <form asp-action="Login" method="POST" class="register-form" id="login-form">
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input asp-for="Email" id="your_name" placeholder="Your Email" />
+                        <span style="color:red;" asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input asp-for="Password" id="your_pass" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="RememberMe" id="remember-me" class="agree-term" />
+                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                    </div>
+                </form>
+                <div class="social-login">
+                    <span class="social-label">Or login with</span>
+                    <ul class="socials">
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+ *@
+
+
+
+
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="container" id="container">
+  @*   <div class="form-container sign-up">
+
+        <form asp-action="Login" method="POST">
+
+            <h1>Create Account</h1>
+            <!-- <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div> -->
+            <span>or use your email for registeration</span>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    I Agree To The Terms  $ Conditions
+                </label>
+            </div>
+            <button>Sign Up</button>
+            <img src="logo2.2.png" alt="PlantDiseaseX Logo" class="logo">
+        </form>
+
+    </div> *@
+    <div class="form-container sign-in">
+        <form asp-action="Login" method="POST">
+
+        <h1>Sign In</h1>
+        <input type="email" asp-for="Email" placeholder="Email" required="">
+        <input type="password" asp-for="Password" placeholder="Password" required="">
+
+            <div class="form-check form-switch">
+                <input asp-for="RememberMe" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label style="margin-top:0.3em;margin-left:0.5em" class="form-check-label" for="flexSwitchCheckDefault">Remember me</label>
+            </div>
+        <button>Sign In</button>
+        <img src="~/images/logo/logo2.2.png" alt="PlantDiseaseX Logo" class="logo">
+    </form>
+</div>
+<div class="toggle-container">
+    <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Enter your personal details to control AdminPanel</p>
+                <button class="hidden" id="login">Sign In</button>
+
+
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Admin!</h1>
+                <p>Sign In with your personal details to control AdminPanel</p>
+                <img style="width:140px;height:120px;" src="~/images/logo/logo.png" alt="PlantDiseaseX Logo" class="logo">
+               @*  <a href="@Url.Action("Register", "Account")" class="hidden" id="register">Sign Up</a> *@
+            </div>
+    </div>
+
+</div>
+</div>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
+

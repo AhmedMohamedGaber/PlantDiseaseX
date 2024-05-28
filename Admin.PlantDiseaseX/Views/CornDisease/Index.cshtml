@@ -1,0 +1,120 @@
+﻿ @model IReadOnlyList<CornDiseasecsViewModel>
+
+@{
+    ViewData["Title"] = "CornDiseases";
+}
+
+<div class="logo" style="position: relative;">
+    <a href="javascript:void(0)" class="simple-text logo-mini" style="position: absolute; top: -10px; left: 0;">
+        <img src="~/images/logo/logo1.png" alt="Logo" style="max-height: 50px;">
+    </a>
+    <h1 style="margin-left: 70px;">
+        Data of CornDiseases
+    </h1>
+</div>
+
+<a asp-action="Create" class="btn btn-default animation-on-hover">
+    <i class="tim-icons icon-simple-add"></i>
+    Add  CornDisease
+
+</a>
+
+
+<br />
+
+@if (Model.Any())
+{
+    <div class="container tableFather ">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th class="text-center">#</th>
+                    <th>Picture1</th>
+                    <th>Picture2</th>
+                    <th>Picture3</th>
+                    <th>Name</th>
+                    <th>AppropriateTreatment</th>
+                    <th>Reasons</th>
+                    <th>Symptoms</th>
+                    <th>Prevention</th>
+                    <th>Management</th>
+                    <th>Riskfactors</th>
+                    <th>RelatedDiseases</th>
+                    <th>ResearchReferences</th>
+                    <th>AdditionalInfo</th>
+                    <th>DiagnosticTests</th>
+                    <th>GeographicDistribution</th>
+                    <th>EnvironmentalConditions</th>
+                    <th>HostPlants</th>
+                    <th>PathogenType</th>
+                    <th>EconomicImpact</th>
+                    <th>ControlMethods</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var corndisease in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="btn-group me-3" role="group">
+
+                                <a class="btn btn-info btn-sm btn-icon  animation-on-hover" asp-action="Edit" asp-route-id="@corndisease.Id"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-success btn-sm btn-icon animation-on-hover" asp-action="Details" asp-route-id="@corndisease.Id"><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-danger btn-sm btn-icon animation-on-hover" asp-action="Delete" asp-route-id="@corndisease.Id"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </td>
+                        <td class="text-center ">@corndisease.Id</td>
+                        <td>
+                            @* src="~/@plant.PictureUrl" *@
+                            <img class="img-thumbnail" class="w-100" src="~/@(corndisease.corndiseasepicture1?? "DefaultNewsArticle1.jpg")" />
+
+
+                        </td>
+                        <td>
+                            @* src="~/@plant.PictureUrl" *@
+                            <img class="img-thumbnail" class="w-100" src="~/@(corndisease.corndiseasepicture2?? "DefaultNewsArticle2.jpg")" />
+                        </td>
+                        <td>
+                            @* src="~/@plant.PictureUrl" *@
+                            <img class="img-thumbnail" class="w-100" src="~/@(corndisease.corndiseasepicture3?? "DefaultNewsArticle2.jpg")" />
+
+                        </td>
+                        <td>@corndisease.name</td>
+                        <td>@corndisease.appropriatetreatment</td>
+                        <td>@corndisease.reasons</td>
+                        <td>@corndisease.symptoms</td>
+                        <td>@corndisease.prevention</td>
+                        <td>@corndisease.management</td>
+                        <td>@corndisease.riskfactors</td>
+                        <td>@corndisease.relateddiseases</td>
+                        <td>@corndisease.researchreferences</td>
+                        <td>@corndisease.additionalinfo</td>
+                        <td>@corndisease.diagnostictests</td>
+                        <td>@corndisease.geographicdistribution</td>
+                        <td>@corndisease.environmentalconditions</td>
+                        <td>@corndisease.hostplants</td>
+                        <td>@corndisease.pathogentype</td>
+                        <td>@corndisease.economicimpact</td>
+                        <td>@corndisease.controlmethods</td>
+
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="mt-3 p-3 alert-warning">
+        <h2>There is no NewsArticle!</h2>
+    </div>
+}
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

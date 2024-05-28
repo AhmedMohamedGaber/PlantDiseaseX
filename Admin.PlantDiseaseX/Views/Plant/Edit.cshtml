@@ -1,0 +1,83 @@
+﻿@using PlantDiseaseX.Core
+@using PlantDiseaseX.Core.Entities
+@model PlantViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@* <h1>Edit</h1> *@
+
+<h1>Edit @Model.Name Plant</h1>
+
+<div class="card has-success" style="background-color: rgba(0, 240, 196, 0.1)">
+<div class="container">
+    <form method="post"  asp-action="Edit" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="Image" />
+            <h4 class="p-2">Current picture</h4>
+        <img src="~/@Model.PictureUrl" alt="Plant Image">
+        <input type="hidden" asp-for="PictureUrl" />
+          
+            <div class="form-group   p-2 col-md-6">
+                
+                <label asp-for="Image" class="btn btn-default form-label mt-4 ">  Upload New Image   </label>
+               
+                <input type="file" asp-for="Image" class="form-control" accept="image/*" onchange="displayImage(event)" name="image" autocomplete="new-image" />
+
+                <span asp-validation-for="Image" class="text-danger" style="color:red"></span>
+
+            </div>
+            <div class="p-2 col-md-6">
+                @if (Model != null && string.IsNullOrEmpty(Model.PictureUrl))
+                {
+                    <div id="poster-container">
+                        <img id="poster-image" src="~/images/plants/@Model.PictureUrl" alt="Poster" class="img-thumbnail" />
+                    </div>
+                }
+                else
+                {
+                    <div id="poster-container" class="d-none">
+                        <img id="poster-image" alt="Poster" class="img-thumbnail" />
+                    </div>
+                }
+            </div>
+        <partial name="CreatEditPartialView" model="Model" />
+        <br />
+        <br />
+       @*  <input  type="submit" value="Save" class="btn btn-primary" /> *@
+            <button type="submit" value="Save" class="btn btn-success  mb-0 animation-on-hover">
+         Edite
+        </button>
+            <a asp-action="Index" class="btn btn-light animation-on-hover">Back To List</a>
+    </form>
+</div>
+</div>
+
+
+@section Scripts
+                {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function displayImage(event) {
+            var input = event.target;
+            var image = document.getElementById("poster-image");
+            var container = document.getElementById("poster-container");
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                    container.classList.remove("d-none");
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                image.src = "";
+                container.classList.add("d-none");
+            }
+        };
+
+
+    </script>
+}

@@ -1,0 +1,54 @@
+﻿
+
+ @model CornDiseasecsViewModel
+ @using PlantDiseaseX.Core
+@using PlantDiseaseX.Core.Entities
+@inject IUnitOfWork unitOfWork
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="alert alert-info btn-success  animation-on-hover" role="alert" style="background-color:#89CFF0	; font-size:larger">
+    @Model.name's CornDisease Details
+</div>
+<div class=" card" style="background-color: rgba(0, 240, 196, 0.1)">
+    <div class="form-row">
+
+        <div class="form-group  p-3 col-md-5">
+            <div class="card form-row " style="background-color: rgba(0, 240, 196, 0.1)">
+                <img class="card-img-top " src="~/@Model.corndiseasepicture1" alt="Plant Image">
+                <img class="card-img-top " src="~/@Model.corndiseasepicture2" alt="Plant Image">
+                <img class="card-img-top " src="~/@Model.corndiseasepicture3" alt="Plant Image">
+            <div class="card-body">
+                <h3 class="card-title">@Model.name</h3>
+                <p class="card-text">@Model.appropriatetreatment</p>
+                    <p class="card-text">@Model.reasons</p>
+                    <p class="card-text">@Model.symptoms</p>
+                    <p class="card-text">@Model.prevention</p>
+                    <p class="card-text">@Model.management</p>
+                    <p class="card-text">@Model.riskfactors</p>
+                    <p class="card-text">@Model.relateddiseases</p>
+                    <p class="card-text">@Model.researchreferences</p>
+                    <p class="card-text">@Model.additionalinfo</p>
+                    <p class="card-text">@Model.diagnostictests</p>
+                    <p class="card-text">@Model.environmentalconditions</p>
+                    <p class="card-text">@Model.hostplants</p>
+                    <p class="card-text">@Model.economicimpact</p>
+                    <p class="card-text">@Model.controlmethods</p>
+
+                </div>
+        </div>
+    </div>
+   
+
+    </div>
+
+
+    <div class="form-group p-3 col-md-7">
+        <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+    </div>
+
+</div>
+
+

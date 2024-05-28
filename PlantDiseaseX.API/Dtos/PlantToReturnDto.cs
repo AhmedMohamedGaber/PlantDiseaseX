@@ -4,6 +4,7 @@ namespace PlantDiseaseX.API.Dtos
 {
     public class PlantToReturnDto
     {
+       
         public int Id { get; set; }
         public string Name { get; set; }
 

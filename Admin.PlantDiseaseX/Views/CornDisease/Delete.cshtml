@@ -1,0 +1,134 @@
+﻿@using PlantDiseaseX.Core
+@using PlantDiseaseX.Core.Entities
+@model CornDiseasecsViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="alert alert-warning btn-danger  alert-dismissible fade show animation-on-hover" role="alert" style="background-color:#FF1A1A ; font-size:large">
+    <strong>Attention!</strong>  Are You Sure You Want To Delete @Model.name's CornDisease...!?
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="tim-icons icon-simple-remove"></i>
+    </button>
+</div>
+
+<div class="container card" style="background-color: rgba(0, 240, 196, 0.1)">
+	<form method="post" asp-action="Delete" >
+		<input asp-for="Id"  hidden />
+
+      
+        <img src="~/@Model.corndiseasepicture1" alt="Plant Image">
+        <img src="~/@Model.corndiseasepicture2" alt="Plant Image">
+        <img src="~/@Model.corndiseasepicture3" alt="Plant Image">
+
+        <div class="form-group">
+            <label asp-for="name" class="col-form-label"></label>
+            <input asp-for="name" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group  col-md-6">
+            <label asp-for="appropriatetreatment" class="col-form-label"></label>
+            <input asp-for="appropriatetreatment" class="form-control" />
+            <span asp-validation-for="appropriatetreatment" class="text-danger"></span>
+        </div>
+        <div class="form-group  col-md-6">
+            <label asp-for="reasons" class="col-form-label"></label>
+            <input asp-for="reasons" class="form-control" />
+            <span asp-validation-for="reasons" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group  col-md-6">
+            <label asp-for="symptoms" class="col-form-label"></label>
+            <input asp-for="symptoms" class="form-control" />
+            <span asp-validation-for="symptoms" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group  col-md-6">
+            <label asp-for="prevention" class="col-form-label"></label>
+            <input asp-for="prevention" class="form-control" />
+            <span asp-validation-for="prevention" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="management" class="col-form-label"></label>
+            <input asp-for="management" class="form-control" />
+            <span asp-validation-for="management" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="riskfactors" class="col-form-label"></label>
+            <input asp-for="riskfactors" class="form-control" />
+            <span asp-validation-for="riskfactors" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="relateddiseases" class="col-form-label"></label>
+            <input asp-for="relateddiseases" class="form-control" />
+            <span asp-validation-for="relateddiseases" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="researchreferences" class="col-form-label"></label>
+            <input asp-for="researchreferences" class="form-control" />
+            <span asp-validation-for="researchreferences" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="additionalinfo" class="col-form-label"></label>
+            <input asp-for="additionalinfo" class="form-control" />
+            <span asp-validation-for="additionalinfo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="diagnostictests" class="col-form-label"></label>
+            <input asp-for="diagnostictests" class="form-control" />
+            <span asp-validation-for="diagnostictests" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="geographicdistribution" class="col-form-label"></label>
+            <input asp-for="geographicdistribution" class="form-control" />
+            <span asp-validation-for="geographicdistribution" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group  col-md-6">
+            <label asp-for="environmentalconditions" class="col-form-label"></label>
+            <input asp-for="environmentalconditions" class="form-control" />
+            <span asp-validation-for="environmentalconditions" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group  col-md-6">
+            <label asp-for="hostplants" class="col-form-label"></label>
+            <input asp-for="hostplants" class="form-control" />
+            <span asp-validation-for="hostplants" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="pathogentype" class="col-form-label"></label>
+            <input asp-for="pathogentype" class="form-control" />
+            <span asp-validation-for="pathogentype" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="economicimpact" class="col-form-label"></label>
+            <input asp-for="economicimpact" class="form-control" />
+            <span asp-validation-for="economicimpact" class="text-danger"></span>
+        </div>
+
+        <div class="form-group  col-md-6">
+            <label asp-for="controlmethods" class="col-form-label"></label>
+            <input asp-for="controlmethods" class="form-control" />
+            <span asp-validation-for="controlmethods" class="text-danger"></span>
+        </div>
+
+       
+		<input type="submit" value="Delete" class="btn btn-danger" />
+		<a asp-action="Index" class="btn btn-light">Back To List</a>
+	</form>
+</div>

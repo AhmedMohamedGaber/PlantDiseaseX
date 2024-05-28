@@ -1,17 +1,303 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <!--<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>-->
+	  <!-- Ensure this is not set as a self-contained executable --><!--
+	      <SelfContained>true</SelfContained>-->
+
+	  <!--<OutputType>Library</OutputType>
+	  --><!-- Ensure it's Exe only if it's standalone -->
+	  <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+
+	  <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
+	
+
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\NiceAdmin\**" />
+    <Compile Remove="wwwroot\Test\**" />
+    <Content Remove="wwwroot\NiceAdmin\**" />
+    <Content Remove="wwwroot\Test\**" />
+    <EmbeddedResource Remove="wwwroot\NiceAdmin\**" />
+    <EmbeddedResource Remove="wwwroot\Test\**" />
+    <None Remove="wwwroot\NiceAdmin\**" />
+    <None Remove="wwwroot\Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Remove="C:\Users\elhmz\.nuget\packages\bootstrap\5.3.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="WinHttp">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>1</VersionMinor>
+      <VersionMajor>5</VersionMajor>
+      <Guid>662901fc-6951-4854-9eb2-d9a2570f2b2e</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\demo\demo.js" />
+    <None Include="wwwroot\fonts\nucleo.woff2" />
+    <None Include="wwwroot\js\core\bootstrap.min.js" />
+    <None Include="wwwroot\js\core\jquery.min.js" />
+    <None Include="wwwroot\js\core\popper.min.js" />
+    <None Include="wwwroot\js\plugins\bootstrap-notify.js" />
+    <None Include="wwwroot\js\plugins\chartjs.min.js" />
+    <None Include="wwwroot\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <None Include="wwwroot\Registration\.sass-cache\21880c0ffe15753a53f8402e9f64e1077e071510\style.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\extend.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\fonts.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\global.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\minxi.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\variables.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\3948936f84e1a30385e73a9be140b58b48c82e15\style.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\main.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\responsive.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\extend.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\fonts.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\global.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\minxi.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\variables.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\main.scssc" />
+    <None Include="wwwroot\Registration\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\responsive.scssc" />
+    <None Include="wwwroot\Registration\css\style.css.map" />
+    <None Include="wwwroot\Registration\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
+    <None Include="wwwroot\Registration\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-300.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-300.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-300italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-300italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-500.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-500.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-500italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-500italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-600.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-600.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-700.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-700.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-700italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-700italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-800.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-800.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-800italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-800italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-900.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-900.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\poppins-v5-latin-regular.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-700.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-700.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-700italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-700italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-italic.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-italic.woff2" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-regular.svg" />
+    <None Include="wwwroot\Registration\fonts\poppins\roboto-condensed-v16-latin-regular.woff2" />
+    <None Include="wwwroot\Registration\js\main.js" />
+    <None Include="wwwroot\Registration\scss\common\extend.scss" />
+    <None Include="wwwroot\Registration\scss\common\fonts.scss" />
+    <None Include="wwwroot\Registration\scss\common\global.scss" />
+    <None Include="wwwroot\Registration\scss\common\minxi.scss" />
+    <None Include="wwwroot\Registration\scss\common\variables.scss" />
+    <None Include="wwwroot\Registration\scss\layouts\main.scss" />
+    <None Include="wwwroot\Registration\scss\layouts\responsive.scss" />
+    <None Include="wwwroot\Registration\scss\style.scss" />
+    <None Include="wwwroot\Registration\vendor\jquery\jquery-ui.min.js" />
+    <None Include="wwwroot\Registration\vendor\jquery\jquery.min.js" />
+    <None Include="wwwroot\scss\black-dashboard.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\bootstrap-grid.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\bootstrap-reboot.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\bootstrap.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_alert.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_background-variant.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_badge.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_border-radius.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_box-shadow.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_breakpoints.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_buttons.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_caret.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_clearfix.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_deprecate.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_float.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_forms.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_gradients.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_grid-framework.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_grid.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_hover.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_image.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_list-group.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_lists.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_nav-divider.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_pagination.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_reset-text.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_resize.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_screen-reader.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_size.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_table-row.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_text-emphasis.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_text-hide.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_text-truncate.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_transition.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\mixins\_visibility.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_align.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_background.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_borders.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_clearfix.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_display.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_embed.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_flex.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_float.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_overflow.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_position.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_screenreaders.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_shadows.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_sizing.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_spacing.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_stretched-link.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_text.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\utilities\_visibility.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\vendor\_rfs.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_alert.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_badge.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_breadcrumb.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_button-group.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_buttons.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_card.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_carousel.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_close.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_code.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_custom-forms.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_dropdown.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_forms.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_functions.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_grid.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_images.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_input-group.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_jumbotron.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_list-group.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_media.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_mixins.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_modal.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_nav.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_navbar.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_pagination.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_popover.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_print.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_progress.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_reboot.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_root.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_spinners.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_tables.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_toasts.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_tooltip.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_transitions.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_type.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_utilities.scss" />
+    <None Include="wwwroot\scss\black-dashboard\bootstrap\_variables.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\cards\_card-chart.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\cards\_card-map.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\cards\_card-plain.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\cards\_card-task.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\cards\_card-user.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\opacity.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_alert.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_background-variant.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_badges.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_buttons.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_dropdown.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_forms.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_icon.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_inputs.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_modals.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_page-header.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_popovers.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_vendor-prefixes.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\mixins\_wizard.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_backgrounds.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_floating.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_helper.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_position.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_shadows.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_sizing.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_spacing.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_text.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\utilities\_transform.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\vendor\_plugin-animate-bootstrap-notify.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\vendor\_plugin-perfect-scrollbar.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_alerts.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_buttons.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_card.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_checkboxes-radio.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_dropdown.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_example-pages.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_fixed-plugin.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_footer.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_forms.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_functions.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_images.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_input-group.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_misc.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_mixins.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_modal.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_navbar.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_rtl.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_sidebar-and-main-panel.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_tables.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_type.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_utilities.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_variables.scss" />
+    <None Include="wwwroot\scss\black-dashboard\custom\_white-content.scss" />
+    <None Include="wwwroot\scss\black-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <None Include="wwwroot\scss\black-dashboard\_buttons.scss" />
+    <None Include="wwwroot\scss\black-dashboard\_typography.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.30" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.29" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.29">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.29" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.29">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="NToastNotify" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PlantDiseaseX.API\PlantDiseaseX.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Identity\Migrations\" />
   </ItemGroup>
 
 </Project>

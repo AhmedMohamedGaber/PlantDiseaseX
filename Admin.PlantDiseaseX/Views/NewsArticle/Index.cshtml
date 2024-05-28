@@ -1,0 +1,75 @@
+﻿ @model IReadOnlyList<NewsArticleViewModel>
+
+@{
+    ViewData["Title"] = "NewsArticles";
+}
+
+<div class="logo" style="position: relative;">
+    <a href="javascript:void(0)" class="simple-text logo-mini" style="position: absolute; top: -10px; left: 0;">
+        <img src="~/images/logo/logo1.png" alt="Logo" style="max-height: 50px;">
+    </a>
+    <h1 style="margin-left: 70px;">
+        Data of NewsArticle
+    </h1>
+</div>
+
+<a asp-action="Create" class="btn btn-default animation-on-hover">
+    <i class="tim-icons icon-simple-add"></i>
+    Add  NewsAricle
+
+</a>
+
+ 
+<br />
+
+@if (Model.Any())
+{
+    <div class="container tableFather">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+
+                    <th>Picture</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var newsarticle in Model)
+                {
+                    <tr>
+                        <td class="text-center">@newsarticle.Id</td>
+                        <td>
+                            @* src="~/@plant.PictureUrl" *@
+                            <img class="img-thumbnail" class="w-100" src="~/@(newsarticle.NewsPicture?? "DefaultNewsArticle.jpg")" />
+                        </td>
+                        <td>@newsarticle.Title</td>
+                        <td>@newsarticle.Description</td>
+                        <td>@newsarticle.Date</td>
+                        <td>
+                            <div class="btn-group" role="group">
+
+                                <a class="btn btn-info btn-sm btn-icon  animation-on-hover" asp-action="Edit" asp-route-id="@newsarticle.Id"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-success btn-sm btn-icon animation-on-hover  " asp-action="Details" asp-route-id="@newsarticle.Id"><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-danger btn-sm btn-icon animation-on-hover" asp-action="Delete" asp-route-id="@newsarticle.Id"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="mt-3 p-3 alert-warning">
+        <h2>There is no NewsArticle!</h2>
+    </div>
+}
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

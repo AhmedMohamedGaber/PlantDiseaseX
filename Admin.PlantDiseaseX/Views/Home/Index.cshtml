@@ -1,8 +1,86 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿@model PlantViewModel
+<div id="clock">
+  
+    <p class="date">{{ date }}</p>
+    <p class="time">{{ time }}</p>
+    <p class="text">Graduation Project</p>
 </div>
+
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        background: #0f3854;
+        background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+        background-size: 100%;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    #clock {
+        font-family: 'Share Tech Mono', monospace;
+        color: #daf6ff;
+        text-align: center;
+        position: absolute;
+        left: 56%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+    }
+
+    .time {
+        letter-spacing: 0.05em;
+        font-size: 80px;
+        padding: 5px 0;
+    }
+
+    .date {
+        letter-spacing: 0.1em;
+        font-size: 24px;
+    }
+
+    .text {
+        letter-spacing: 0.1em;
+        font-size: 25px;
+        padding: 25px 0 0;
+    }
+</style>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        var clock = new Vue({
+            el: '#clock',
+            data: {
+                time: '',
+                date: ''
+            }
+        });
+
+        var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        var timerID = setInterval(updateTime, 1000);
+        updateTime();
+        function updateTime() {
+            var cd = new Date();
+            var hours = cd.getHours();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // 12-hour clock with 0 representing 12
+            clock.time = zeroPadding(hours, 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2) + ' ' + ampm;
+            clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+        };
+
+        function zeroPadding(num, digit) {
+            var zero = '';
+            for (var i = 0; i < digit; i++) {
+                zero += '0';
+            }
+            return (zero + num).slice(-digit);
+        }
+    </script>
+}

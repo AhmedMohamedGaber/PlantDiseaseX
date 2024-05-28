@@ -1,18 +1,111 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+
+.tableFather {
+    overflow: auto;
+    max-height: 70vh;
+    
+}
+
+    .tableFather::-webkit-scrollbar {
+        background: linear-gradient(45deg,#00f3c3,#00b1e4);
+        border-radius: 10px;
+        height: 10px;
+        width:10px;
+        transition: 0.3s ease-in-out;
+    }.tableFather::-webkit-scrollbar-corner {
+        visibility:hidden;
+   
+    }
+
+    .tableFather::-webkit-scrollbar-thumb {
+        background-color: #065d7170; /* Dark grey */
+        border-radius: 10px;
+    }
+
+
+.table-father:hover::-webkit-scrollbar {
+    background-color: #065d71; /* Dark grey */
+    height: 30px; /* Increase the height of the scrollbar thumb on hover */
+}
+
+.table-father:hover::-webkit-scrollbar-thumb {
+    background-color: #065d71; /* Dark grey */
+}
+/*.tableFather::-webkit-scrollbar:hover {
+            background-color: #065d71;*/ /* Dark grey */
+/*height: 30px;*/ /* Increase the height of the scrollbar thumb on hover */
+/*}*/

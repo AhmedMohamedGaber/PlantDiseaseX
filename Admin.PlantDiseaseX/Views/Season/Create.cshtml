@@ -1,0 +1,40 @@
+﻿@model Season
+@using PlantDiseaseX.Core
+@using PlantDiseaseX.Core.Entities
+@inject IUnitOfWork unitOfWork
+@* @{
+    ViewData["Title"] = "Create";
+} *@
+
+<h3>Add Season  <i class="tim-icons   icon-align-left-2"></i></h3>
+
+
+<form method="post" asp-action="Create" >
+
+    <div class="mb-2">
+
+        <div class="input-group has-success">
+            <input asp-for="Name" class="form-control season-input " placeholder="Season Name" style="color:black" />
+           
+        </div>
+        <span asp-validation-for="Name" class="text-danger validation-message p-2 "></span>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success animation-on-hover">Save changes</button>
+        </div>
+      
+    </div>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.season-input').focus(function () {
+            $(this).attr('placeholder', '');
+        });
+        $('.category-input').blur(function () {
+            $(this).attr('placeholder', 'Season Name');
+        });
+    });
+</script>

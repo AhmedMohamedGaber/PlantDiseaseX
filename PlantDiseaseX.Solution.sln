@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantDiseaseX.Repository", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantDiseaseX.Service", "PlantDiseaseX.Service\PlantDiseaseX.Service.csproj", "{AF8AFBCA-E785-4998-A409-79717BB0C1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.PlantDiseaseX", "Admin.PlantDiseaseX\Admin.PlantDiseaseX.csproj", "{922D94D5-0C04-43AC-A4D4-BEC557D42704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin.PlantDiseaseX", "Admin.PlantDiseaseX\Admin.PlantDiseaseX.csproj", "{922D94D5-0C04-43AC-A4D4-BEC557D42704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

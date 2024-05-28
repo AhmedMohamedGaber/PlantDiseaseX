@@ -16,6 +16,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Connections;
 using StackExchange.Redis;
+using PlantDiseaseX.API.Extensions;
+using Microsoft.Extensions.FileProviders;
 //using PlantDiseaseX.API.Extensions;
 
 namespace PlantDiseaseX.API
@@ -31,11 +33,15 @@ namespace PlantDiseaseX.API
             // Add services to the container.
 
 
+
+
+
+
             builder.Services.AddControllers();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-          //  builder.Services.AddSwaggerGen();
+            //  builder.Services.AddSwaggerGen();
 
             builder.Services.AddSwaggerGen(c =>
             {
@@ -51,21 +57,27 @@ namespace PlantDiseaseX.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            //builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+            //{
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString(""));
+            //});
+
             // Radis (cacheing)
 
             builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
             {
                 var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
-                return ConnectionMultiplexer.Connect(configuration);    
+                return ConnectionMultiplexer.Connect(configuration);
             });
 
-           // builder.Services.AddApplicationService();
+            builder.Services.AddApplicationServices();
 
-            // ApplicationServicesExtension.AddApplicationServices(builder.Services);
+            ApplicationServicesExtension.AddApplicationServices(builder.Services);
 
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             builder.Services.AddAutoMapper(typeof(MappingProfiles));
+
 
             builder.Services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -84,8 +96,34 @@ namespace PlantDiseaseX.API
                 };
             });
 
-           // builder.Services.AddApplicationServices();
 
+
+           
+
+            // ...
+
+
+            // builder.Services.AddApplicationServices();
+
+
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowLocalhost4200",
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("http://localhost:4200")
+            //                   .AllowAnyHeader()
+            //                   .AllowAnyMethod();
+            //        });
+            //});
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+
+            });
             #endregion
 
             #region Update-Database during run
@@ -107,8 +145,8 @@ namespace PlantDiseaseX.API
             }
             catch (Exception ex)
             {
-              var logger = loggerFactory.CreateLogger<Program>();
-                logger.LogError(ex,"An Error during apply the migration");
+                var logger = loggerFactory.CreateLogger<Program>();
+                logger.LogError(ex, "An Error during apply the migration");
             }
 
 
@@ -120,7 +158,7 @@ namespace PlantDiseaseX.API
             app.UseMiddleware<ExceptionMiddleware>();
 
 
-           
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -134,23 +172,31 @@ namespace PlantDiseaseX.API
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlantDiseasX.Api v1");
                 });
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+
 
             app.UseStatusCodePagesWithRedirects("/errors/{0}");
 
             app.UseHttpsRedirection();
 
 
-            
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseStaticFiles();
+
 
             app.MapControllers();
 
 
             app.UseRouting();
 
+            //app.UseCors("AllowLocalhost4200");
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

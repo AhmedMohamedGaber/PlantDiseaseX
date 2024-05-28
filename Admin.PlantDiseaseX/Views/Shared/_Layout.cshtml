@@ -3,12 +3,45 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Admin.PlantDiseaseX</title>
+    <title>@ViewData["Title"]  Admin.PlantDiseaseX</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/trees.css' rel='stylesheet'>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Admin.PlantDiseaseX.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="~/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="~/demo/demo.css" rel="stylesheet" />
+
+
+    <!-- Favicons -->
+    <link href="~/images/logo/logo1.png" rel="icon">
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: block;
+            background-color: #0e4166;
+            background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
+        }
+
+      /*   :root {
+            --primary-color: #28a745;
+        } */
+    </style>
     <!-- Nucleo Icons -->
     <link href="~/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
@@ -17,31 +50,91 @@
     <link href="~/demo/demo.css" rel="stylesheet" />
 </head>
 <body>
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <defs>
+            <linearGradient id="bg">
+                <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.06)"></stop>
+                <stop offset="50%" style="stop-color:rgba(76, 190, 255, 0.6)"></stop>
+                <stop offset="100%" style="stop-color:rgba(115, 209, 72, 0.2)"></stop>
+            </linearGradient>
+            <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+        </defs>
+        <g>
+            <use xlink:href='#wave' opacity=".3">
+                <animateTransform attributeName="transform"
+                                  attributeType="XML"
+                                  type="translate"
+                                  dur="10s"
+                                  calcMode="spline"
+                                  values="270 230; -334 180; 270 230"
+                                  keyTimes="0; .5; 1"
+                                  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                                  repeatCount="indefinite" />
+            </use>
+            <use xlink:href='#wave' opacity=".6">
+                <animateTransform attributeName="transform"
+                                  attributeType="XML"
+                                  type="translate"
+                                  dur="8s"
+                                  calcMode="spline"
+                                  values="-270 230;243 220;-270 230"
+                                  keyTimes="0; .6; 1"
+                                  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                                  repeatCount="indefinite" />
+            </use>
+            <use xlink:href='#wave' opacty=".9">
+                <animateTransform attributeName="transform"
+                                  attributeType="XML"
+                                  type="translate"
+                                  dur="6s"
+                                  calcMode="spline"
+                                  values="0 230;-140 200;0 230"
+                                  keyTimes="0; .4; 1"
+                                  keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                                  repeatCount="indefinite" />
+            </use>
+        </g>
+    </svg>
     <div class="wrapper">
-        <div class="sidebar">
+      
+        <div class="sidebar" data="green" background-color="green">
+
+
             <!--
                 Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
             -->
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a href="javascript:void(0)" class="simple-text logo-mini">
-                        PDX
+            <div class="sidebar-wrapper" data="green" background-color="green">
+                <div class="logo" style="position: relative;">
+                    <a href="javascript:void(0)" class="simple-text" style="position: absolute; top: -5px; left: 0;">
+                        <img src="~/images/logo/logo1.png" alt="Logo" style="max-height: 50px;">
                     </a>
-                    <a href="javascript:void(0)" class="simple-text logo-normal">
+                    <a asp-controller="Home" asp-action="Index" class="simple-text logo-normal" style="margin-left: 60px;">
                         PlantDiseasX
                     </a>
                 </div>
+
+                @* <div class="logo">
+                <a href="javascript:void(0)" class="simple-text logo-mini">
+                PDX
+                </a>
+                <a href="javascript:void(0)" class="simple-text logo-normal">
+                PlantDiseasX
+                </a>
+                </div> *@
                 <ul class="nav">
-                    <div class="text-center" style="color:white">EndPoint (APIs)</div>
+                    <div class="text-center" style="color:white">EndPoints (APIs)</div>
                     <li class="active ">
                         <a asp-controller="Plant" asp-action="Index">
-                            <i class="tim-icons icon-single-02"></i>
+                            <i class="tim-icons gg-trees"></i>
                             <p>Plants</p>
                         </a>
                     </li>
                     <li class="active ">
                         <a asp-controller="Category" asp-action="Index">
-                            <i class="tim-icons icon-single-02"></i>
+                            <i class="tim-icons icon-components"></i>
 
                             <p>Categories</p>
                         </a>
@@ -49,11 +142,36 @@
                     <li class="active ">
                         <a asp-controller="Season" asp-action="Index">
 
-                            <i class="tim-icons icon-single-02"></i>
+                            <i class="tim-icons icon-atom"></i>
                             <p>Seasons</p>
                         </a>
                     </li>
-                    <div style="margin-bottom: 20px;"></div>
+                    <li class="active ">
+                        <a asp-controller="NewsArticle" asp-action="Index">
+
+                            <i class="tim-icons icon-single-copy-04"></i>
+                            <p>NewsArticles</p>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a asp-controller="CornDisease" asp-action="Index">
+
+                            <i class="tim-icons icon-single-copy-04"></i>
+                            <p>CornDiseases</p>
+                        </a>
+                    </li>
+                    <div style="margin-bottom: 10px;"></div>
+                    <div class="text-center" style="color:white">ContactUs</div>
+                    <li class="active ">
+                        <a asp-controller="ContactUs" asp-action="Index">
+
+                            <i class="tim-icons icon-single-copy-04"></i>
+                            <p>Messages</p>
+                        </a>
+                    </li>
+
+
+                    <div style="margin-bottom: 10px;"></div>
                     <div class="text-center" style="color:white">Management</div>
                     <li class="active ">
                         <a asp-controller="Role" asp-action="Index">
@@ -121,9 +239,9 @@
 
 
         <!-- Navbar -->
-        <div class="main-panel">
+        <div class="main-panel" data="green" background-color="green">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent " data="green" background-color="green">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
                         <div class="navbar-toggle d-inline">
@@ -133,7 +251,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+                        <a class="navbar-brand" asp-controller="Home" asp-action="Index">Dashboard</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -142,34 +260,25 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
-                            <li class="search-bar input-group">
+                            @* <li class="search-bar input-group">
                                 <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
                                     <i class="tim-icons icon-zoom-split"></i>
                                     <span class="d-lg-none d-md-block">Search</span>
                                 </button>
-                            </li>
-                            @*  <li class="dropdown nav-item">
-                            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <div class="notification d-none d-lg-block d-xl-block"></div>
-                            <i class="tim-icons icon-sound-wave"></i>
-                            <p class="d-lg-none">
-                            Notifications
-                            </p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                            <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
-                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
-                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
-                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
-                            <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
-                            </ul>
                             </li> *@
+                            <li class=" nav-item">
+                                <span style="margin-top:0.75rem" class="d-none d-md-block dropdown-toggle ps-2">@User.Identity.Name</span>
+                            </li>
                             <li class="dropdown nav-item">
+                                
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                   
                                     <div class="photo">
-                                        <img src="~/img/anime3.png" alt="Profile Photo">
+                                        <img src="~/images/logo/anime3.png" alt="Profile Photo">
                                     </div>
+                                   
                                     <b class="caret d-none d-lg-block d-xl-block"></b>
+                                   
                                     <p class="d-lg-none">
                                         Log out
                                     </p>
@@ -178,7 +287,7 @@
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
                                     <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                                    <li class="nav-link"><a asp-controller="Account" asp-action="SignOut" class="nav-item dropdown-item">Log out</a></li>
                                 </ul>
                             </li>
                             <li class="separator d-lg-none"></li>
@@ -200,39 +309,18 @@
             </div>
             <!-- End Navbar -->
             <div class="content">
-                <div class="container">
+                <div class="container ms-3 ">
                     <main role="main" class="pb-3">
                         @RenderBody()
                     </main>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0)" class="nav-link">
-                                PlantDisease Dashbord
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0)" class="nav-link">
-                                About Us
-                            </a>
-                        </li>
 
-                    </ul>
-                    <div class="copyright">
-                        ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> made with <i class="tim-icons icon-heart-2"></i> by
-                        <a href="javascript:void(0)" target="_blank">Team Of PlantDiseasX</a> for  easy control.
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
+
     <div class="fixed-plugin">
+
         <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
@@ -417,7 +505,9 @@
     </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootbox.js/bootbox.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
 </body>
 </html>

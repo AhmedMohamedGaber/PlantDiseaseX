@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using plantdiseasex.core.entities;
 using PlantDiseaseX.Core.Entities;
 using PlantDiseaseX.Repository.Data.Config;
 using System;
@@ -33,6 +34,14 @@ namespace PlantDiseaseX.Repository.Data
         public DbSet<Plantcategory> PlantCategories { get; set; }
         public DbSet<Season> PlantSeasons { get; set; }
 
+        public DbSet<NewsArticle> NewsArticles { get; set; }
+
+        public DbSet<corndisease> corndiseases { get; set; }
+
+
+        public DbSet<ContactUs> ContactUs { get; set; }
+
+        
 
     }
 }
