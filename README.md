@@ -24,9 +24,16 @@
 - **Responsive Design**: User-friendly interface with responsive design using Bootstrap.
 - **Data Visualization**: Interactive charts and graphs for better data analysis.
 
+- 
+## **Demo Video**
 
 https://github.com/AhmedMohamedGaber/PlantDiseaseX/assets/85976531/5f55203b-84f8-47ad-b667-3f940a67b3f4
 
+
+
+<video controls width="100%">
+  <source src="https://github.com/AhmedMohamedGaber/PlantDiseaseX/assets/85976531/5f55203b-84f8-47ad-b667-3f940a67b3f4">
+</video>
 
 - 
 ## **MVC[Dashbord] Screenshots**
