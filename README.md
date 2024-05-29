@@ -1,12 +1,34 @@
 # **PlantDiseaseX**
 
+![PlantDiseaseX Logo](https://via.placeholder.com/800x200?text=PlantDiseaseX+Logo)
+
 ## **Project Title**
 
-PlantDiseaseX - A Comprehensive Solution for Managing and Diagnosing Plant Diseases
+**PlantDiseaseX** - A Comprehensive Solution for Managing and Diagnosing Plant Diseases
 
 ## **Introduction**
 
-PlantDiseaseX is a project that provides a robust API for managing and diagnosing plant diseases. It was created to address the need for an efficient and scalable solution to track and treat plant health issues.
+**PlantDiseaseX** is a powerful ASP.NET Core MVC API designed to help farmers and agricultural experts diagnose and manage plant diseases effectively. By leveraging advanced data structures, design patterns, and modern web technologies, PlantDiseaseX offers a user-friendly interface and robust backend for handling plant health information.
+
+## **Features**
+
+- **Plant Disease Management**: Easily add, update, and remove plant disease records.
+- **Disease Diagnosis**: Automated diagnosis based on symptoms and images.
+- **User Authentication**: Secure user authentication and authorization.
+- **RESTful API**: Fully RESTful API for seamless integration with other applications.
+- **Responsive Design**: User-friendly interface with responsive design using Bootstrap.
+
+## **Tech Stack**
+
+![Tech Stack](https://via.placeholder.com/800x150?text=ASP.NET+Core+MVC+%7C+C%23+%7C+Entity+Framework+%7C+SQL+Server+%7C+Bootstrap+%7C+HTML+%7C+CSS+%7C+JavaScript)
+
+- **ASP.NET Core MVC** for building the web application and API.
+- **C# OOP** for implementing business logic.
+- **Entity Framework** for database interactions.
+- **SQL Server** as the database management system.
+- **Bootstrap** for responsive design and styling.
+- **HTML, CSS, JavaScript** for front-end development.
+
 
 ## **Installation**
 
