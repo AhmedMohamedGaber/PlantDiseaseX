@@ -13,35 +13,45 @@
     @Model.name's CornDisease Details
 </div>
 <div class=" card" style="background-color: rgba(0, 240, 196, 0.1)">
-    <div class="form-row">
-
-        <div class="form-group  p-3 col-md-5">
-            <div class="card form-row " style="background-color: rgba(0, 240, 196, 0.1)">
-                <img class="card-img-top " src="~/@Model.corndiseasepicture1" alt="Plant Image">
-                <img class="card-img-top " src="~/@Model.corndiseasepicture2" alt="Plant Image">
-                <img class="card-img-top " src="~/@Model.corndiseasepicture3" alt="Plant Image">
-            <div class="card-body">
-                <h3 class="card-title">@Model.name</h3>
-                <p class="card-text">@Model.appropriatetreatment</p>
-                    <p class="card-text">@Model.reasons</p>
-                    <p class="card-text">@Model.symptoms</p>
-                    <p class="card-text">@Model.prevention</p>
-                    <p class="card-text">@Model.management</p>
-                    <p class="card-text">@Model.riskfactors</p>
-                    <p class="card-text">@Model.relateddiseases</p>
-                    <p class="card-text">@Model.researchreferences</p>
-                    <p class="card-text">@Model.additionalinfo</p>
-                    <p class="card-text">@Model.diagnostictests</p>
-                    <p class="card-text">@Model.environmentalconditions</p>
-                    <p class="card-text">@Model.hostplants</p>
-                    <p class="card-text">@Model.economicimpact</p>
-                    <p class="card-text">@Model.controlmethods</p>
-
-                </div>
-        </div>
-    </div>
    
 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="card-img-top img-thumbnail w-75 my-3 " src="~/@Model.corndiseasepicture1" alt="Plant Image">
+                <img class="card-img-top img-thumbnail w-75 my-3 " src="~/@Model.corndiseasepicture2" alt="Plant Image">
+                <img class="card-img-top img-thumbnail w-75 my-3 " src="~/@Model.corndiseasepicture3" alt="Plant Image">
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">Additional Details</h4>
+                    <ul class=" list-group-flush">
+                        <h3 class="card-title">@Model.name</h3>
+                        <li class="form-group"><strong>AppropriateTreatment:</strong> @Model.appropriatetreatment</li>
+                        <li class="form-group"><strong>General Use:</strong> @Model.reasons</li>
+                        <li class="form-group"><strong>Properties:</strong> @Model.symptoms</li>
+                        <li class="form-group"><strong>Warnings:</strong> @Model.prevention</li>
+                        <li class="form-group"><strong>Medical Use:</strong> @Model.management</li>
+                        <li class="form-group"><strong>Treatment:</strong> @Model.riskfactors</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.relateddiseases</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.researchreferences</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.additionalinfo</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.diagnostictests</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.environmentalconditions</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.hostplants</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.economicimpact</li>
+                        <li class="form-group"><strong>Season:</strong> @Model.controlmethods</li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
     </div>
 
 

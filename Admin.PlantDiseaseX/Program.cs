@@ -18,6 +18,8 @@ using Microsoft.CodeAnalysis.Options;
 using Microsoft.Extensions.Options;
 using Microsoft.CodeAnalysis;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Admin.PlantDiseaseX.Repository;
+using Admin.PlantDiseaseX.Services;
 
 namespace Admin.PlantDiseaseX
 {
@@ -67,6 +69,9 @@ namespace Admin.PlantDiseaseX
                 CloseButton = true
             });
 
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<UserRepository>();
             builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             builder.Services.AddAutoMapper(typeof(MapsProfile));
 

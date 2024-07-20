@@ -34,23 +34,22 @@
                     <th>Picture2</th>
                     <th>Picture3</th>
                     <th>Name</th>
-                    <th>AppropriateTreatment</th>
-                    <th>Reasons</th>
-                    <th>Symptoms</th>
-                    <th>Prevention</th>
-                    <th>Management</th>
-                    <th>Riskfactors</th>
-                    <th>RelatedDiseases</th>
-                    <th>ResearchReferences</th>
-                    <th>AdditionalInfo</th>
-                    <th>DiagnosticTests</th>
-                    <th>GeographicDistribution</th>
-                    <th>EnvironmentalConditions</th>
-                    <th>HostPlants</th>
-                    <th>PathogenType</th>
-                    <th>EconomicImpact</th>
-                    <th>ControlMethods</th>
-
+                    <th class="limit-words">AppropriateTreatment</th>
+                    <th class="limit-words">Reasons</th>
+                    <th class="limit-words">Symptoms</th>
+                    <th class="limit-words">Prevention</th>
+                    <th class="limit-words">Management</th>
+                    <th class="limit-words">Riskfactors</th>
+                    <th class="limit-words">RelatedDiseases</th>
+                    <th class="limit-words">ResearchReferences</th>
+                    <th class="limit-words">AdditionalInfo</th>
+                    <th class="limit-words">DiagnosticTests</th>
+                    <th class="limit-words">GeographicDistribution</th>
+                    <th class="limit-words">EnvironmentalConditions</th>
+                    <th class="limit-words">HostPlants</th>
+                    <th class="limit-words">PathogenType</th>
+                    <th class="limit-words">EconomicImpact</th>
+                    <th class="limit-words">ControlMethods</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,24 +80,23 @@
                             <img class="img-thumbnail" class="w-100" src="~/@(corndisease.corndiseasepicture3?? "DefaultNewsArticle2.jpg")" />
 
                         </td>
-                        <td>@corndisease.name</td>
-                        <td>@corndisease.appropriatetreatment</td>
-                        <td>@corndisease.reasons</td>
-                        <td>@corndisease.symptoms</td>
-                        <td>@corndisease.prevention</td>
-                        <td>@corndisease.management</td>
-                        <td>@corndisease.riskfactors</td>
-                        <td>@corndisease.relateddiseases</td>
-                        <td>@corndisease.researchreferences</td>
-                        <td>@corndisease.additionalinfo</td>
-                        <td>@corndisease.diagnostictests</td>
-                        <td>@corndisease.geographicdistribution</td>
-                        <td>@corndisease.environmentalconditions</td>
-                        <td>@corndisease.hostplants</td>
-                        <td>@corndisease.pathogentype</td>
-                        <td>@corndisease.economicimpact</td>
-                        <td>@corndisease.controlmethods</td>
-
+                        <td id="description">@corndisease.name</td>
+                        <td class="limit-words">@corndisease.appropriatetreatment</td>
+                        <td class="limit-words">@corndisease.reasons</td>
+                        <td class="limit-words">@corndisease.symptoms</td>
+                        <td class="limit-words">@corndisease.prevention</td>
+                        <td class="limit-words">@corndisease.management</td>
+                        <td class="limit-words">@corndisease.riskfactors</td>
+                        <td class="limit-words">@corndisease.relateddiseases</td>
+                        <td class="limit-words">@corndisease.researchreferences</td>
+                        <td class="limit-words">@corndisease.additionalinfo</td>
+                        <td class="limit-words">@corndisease.diagnostictests</td>
+                        <td class="limit-words">@corndisease.geographicdistribution</td>
+                        <td class="limit-words">@corndisease.environmentalconditions</td>
+                        <td class="limit-words">@corndisease.hostplants</td>
+                        <td class="limit-words">@corndisease.pathogentype</td>
+                        <td class="limit-words">@corndisease.economicimpact</td>
+                        <td class="limit-words">@corndisease.controlmethods</td>
 
 
 
@@ -117,4 +115,22 @@ else
 @section Scripts
 {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Function to truncate text by words
+        function truncateByWords(text, wordLimit) {
+            var words = text.split(' ');
+            if (words.length > wordLimit) {
+                return words.slice(0, wordLimit).join(' ') + '...';
+            }
+            return text;
+        }
+
+        // Select all elements with the class 'limit-words'
+        var elements = document.querySelectorAll('.limit-words');
+
+        // Apply truncation to each element
+        elements.forEach(function (element) {
+            element.textContent = truncateByWords(element.textContent, 3);
+        });
+    </script>
 }

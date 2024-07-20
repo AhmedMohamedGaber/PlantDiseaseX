@@ -10,6 +10,8 @@ namespace Admin.PlantDiseaseX.Helper
         public MapsProfile()
         {
             CreateMap<Plant, PlantViewModel>().ReverseMap();
+            CreateMap<Plantcategory, CategoryViewModel>();
+            CreateMap<Season, SeasonViewModel>();
             CreateMap<NewsArticle, NewsArticleViewModel>().ReverseMap();
             CreateMap<corndisease , CornDiseasecsViewModel>().ReverseMap();
             CreateMap<ContactUs,ContactUsViewModel>().ReverseMap();

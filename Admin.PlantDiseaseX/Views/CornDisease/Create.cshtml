@@ -17,22 +17,22 @@
             <div class="form-group   p-2">
 
                 <label asp-for="CorndiseaseImage1" class="btn btn-default form-label mt-4">  Upload Image  </label>
-                <input type="file" asp-for="CorndiseaseImage1" class="form-control" accept="image/*" onchange="displayImage(event)" name="corndiseaseimage1" />
+                <input type="file" asp-for="CorndiseaseImage1" class="form-control" accept="image/*" onchange="displayImage(event,1)" name="corndiseaseimage1" />
                 <span asp-validation-for="CorndiseaseImage1" class="text-danger" style="color:red"></span>
 
             </div>
             <div class="p-2">
                 @if (Model != null && !string.IsNullOrEmpty(Model.corndiseasepicture1))
                 {
-                    <div id="poster-container">
-                        <img id="poster-image" src="~/images/corndisease/@Model.corndiseasepicture1" alt="Poster" class="img-thumbnail" />
+                    <div id="poster-container-1">
+                        <img id="poster-image-1" src="~/images/corndisease/@Model.corndiseasepicture1" alt="Poster" class="img-thumbnail w-50" />
                     </div>
 
                 }
                 else
                 {
-                    <div id="poster-container" class="d-none">
-                        <img id="poster-image" alt="Poster" class="img-thumbnail" />
+                    <div id="poster-container-1" class="d-none">
+                        <img id="poster-image-1" alt="Poster" class="img-thumbnail w-50" />
                     </div>
                 }
             </div>
@@ -48,15 +48,15 @@
             <div class="p-2">
                 @if (Model != null && !string.IsNullOrEmpty(Model.corndiseasepicture2))
                 {
-                    <div id="poster-container">
-                        <img id="poster-image" src="~/images/corndisease/@Model.corndiseasepicture2" alt="Poster" class="img-thumbnail" />
+                    <div id="poster-container-2">
+                        <img id="poster-image-2" src="~/images/corndisease/@Model.corndiseasepicture2" alt="Poster" class="img-thumbnail w-50" />
                     </div>
 
                 }
                 else
                 {
-                    <div id="poster-container" class="d-none">
-                        <img id="poster-image" alt="Poster" class="img-thumbnail" />
+                    <div id="poster-container-2" class="d-none">
+                        <img id="poster-image-2" alt="Poster" class="img-thumbnail w-50" />
                     </div>
                 }
             </div>
@@ -76,14 +76,14 @@
                 @if (Model != null && !string.IsNullOrEmpty(Model.corndiseasepicture3))
                 {
                     <div id="poster-container">
-                        <img id="poster-image" src="~/images/corndisease/@Model.corndiseasepicture3" alt="Poster" class="img-thumbnail" />
+                        <img id="poster-image-3" src="~/images/corndisease/@Model.corndiseasepicture3" alt="Poster" class="img-thumbnail w-50" />
                     </div>
                     
                 }
                 else
                 {
-                    <div id="poster-container" class="d-none">
-                        <img id="poster-image" alt="Poster" class="img-thumbnail" />
+                    <div id="poster-container-3" class="d-none">
+                        <img id="poster-image-3" alt="Poster" class="img-thumbnail w-50" />
                     </div>
                 }
             </div>
@@ -104,8 +104,8 @@
     <script>
         function displayImage(event, index) {
             var input = event.target;
-            var image = document.getElementById("poster-image-" + index);
-            var container = document.getElementById("poster-container-" + index);
+            var image = document.getElementById(`poster-image-${index}`);
+            var container = document.getElementById(`poster-container-${index}`);
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

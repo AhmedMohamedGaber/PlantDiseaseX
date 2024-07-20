@@ -1,4 +1,4 @@
-﻿
+﻿@* 
 @model RegisterViewModel
 
 
@@ -81,75 +81,105 @@
 
 
 
-@* 
+ 
+
+ *@
 
 
 
-@model RegisterViewModel
+
+
+
+
+ @model RegisterViewModel
+
 @{
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
+
 <div class="container" id="container">
+    <section class="signup">
+        <div class="signup-content">
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome!</h1>
+                        <p>Sign up to create your account.</p>
+                        <!-- Adjust the image as needed -->
+                        <img src="~/images/logo/logo.png" alt="PlantDiseaseX Logo" class="logo">
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, New Admin!</h1>
+                        <p>Fill in your details to get started.</p>
+                        <!-- Adjust the image as needed -->
+                        <img src="~/images/logo/logo.png" alt="PlantDiseaseX Logo" class="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="signup-form">
+              
+                <form asp-action="Register" method="POST" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input asp-for="FName" id="fname" placeholder="First Name" required />
+                        <span asp-validation-for="FName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input asp-for="LName" id="lname" placeholder="Last Name" required />
+                        <span asp-validation-for="LName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input asp-for="Email" id="email" placeholder="Email" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                        <input asp-for="Password" id="password" placeholder="Password" required />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input asp-for="ConfirmPassword" id="confirmPassword" placeholder="Confirm password" required />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    @* <div class="form-group">
+                        <input asp-for="IsAgree" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
+                        <span asp-validation-for="IsAgree" class="text-danger"></span>
+                    </div> *@
+                    <div class="form-group form-button">
+                        <button type="submit" name="signup" id="signup" class="form-submit m-3">Register</button>
+                    </div>
+                </form>
+                                <p class="m-3">Already have an account? <a asp-action="Login" style="color:blue" >Log in</a></p>
 
-    <div class="form-container sign-up">
-
-    <form>
-
-        <h1>Create Account</h1>
-        <span>or use your email for registeration</span>
-        <input type="text" asp-for="FName" placeholder="First Name" required="">
-        <input type="text" asp-for="LName" placeholder="Last Name" required=""> 
-        <input type="email" asp-for="Email" placeholder="Email" required="">
-        <input type="password" asp-for="Password" placeholder="Password" required="">
-        <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" required="">
-        <div class="form-check">
-            <input asp-for="IsAgree" class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                I Agree To The Terms  $ Conditions
-            </label>
+            </div>
         </div>
-        <button>Sign Up</button>
-        <img src="~/images/logo/logo2.2.png" alt="PlantDiseaseX Logo" class="logo">
-    </form>
-
+    </section>
 </div>
-    <div class="form-container sign-in">
+<style>
+    .container form
+    {
+        background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 13px 33px;
+    }
+</style>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
-        <form>
 
-            <h1>Sign In</h1>
-            <!-- <div class="social-icons">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div> -->
-            <!-- <span>or use your email password</span> -->
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <a href="#">Forget Your Password?</a>
-            <button>Sign In</button>
-            <img src="logo2.2.png" alt="PlantDiseaseX Logo" class="logo">
-        </form>
-    </div>
-<div class="toggle-container">
-    <div class="toggle">
-            <div class="toggle-panel toggle-left">
-                <h1>Welcome Back!</h1>
-                <p>Enter your personal details to control AdminPanel</p>
-                <a href="@Url.Action("Login", "Account")" class="hidden" id="login">Sign In</a>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Hello, Admin!</h1>
-                <p>Register with your personal details to control AdminPanel</p>
-                <button class="hidden" id="register">Sign Up</button>
-            </div>
-    </div>
 
-</div>
-</div>
-@section Scripts
-{
-    <partial name="_ValidationScriptsPartial" />
-} *@
+
+
+
+

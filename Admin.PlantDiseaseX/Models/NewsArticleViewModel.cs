@@ -25,7 +25,6 @@ namespace Admin.PlantDiseaseX.Models
         [Required(ErrorMessage = "Date is Required")]
         [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
-        //public string? FullNewsPictureUrl => !string.IsNullOrEmpty(NewsPicture) ? $"http://plantdiseasexapi.runasp.net/{NewsPicture}" : null;
     }
 
 

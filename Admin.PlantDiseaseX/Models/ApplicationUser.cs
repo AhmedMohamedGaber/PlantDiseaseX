@@ -9,5 +9,7 @@ namespace Admin.PlantDiseaseX.Models
         public string LName { get; set; }
 
         public bool IsAgree { get; set; }
+
+        public DateTime? LastSignInDate { get; set; }
     }
 }

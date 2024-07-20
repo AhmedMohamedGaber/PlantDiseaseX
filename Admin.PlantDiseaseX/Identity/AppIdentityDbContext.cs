@@ -15,6 +15,8 @@ namespace PlantDiseaseX.Identity
         public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options):base(options)
         {
 
+
+
         }
 
 

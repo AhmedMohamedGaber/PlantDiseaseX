@@ -39,7 +39,7 @@
             margin-bottom: 20px;
         }
 
-            .logo a {
+            .test02 a {
                 position: absolute;
                 top: -10px;
                 left: 0;
@@ -184,7 +184,7 @@
 </head>
 <body>
     <main>
-        <div class="logo">
+        <div class="test02 logo">
             <a href="javascript:void(0)" class="simple-text logo-mini">
                 <img src="~/images/logo/logo1.png" alt="Logo">
             </a>
@@ -223,7 +223,7 @@
                         <img src="~/@(plant.PictureUrl ?? "DefaultImage.png")" alt="Plant Image">
                         <div class="card-content">
                             <h2>@plant.Name</h2>
-                            <p>@plant.Description</p>
+                            <p id="description">@plant.Description</p>
                             <a href="@Url.Action("Details", new { id = plant.Id })" class="button" style="color:white">
                                 Find out more
                                 <span class="material-symbols-outlined">
@@ -261,6 +261,26 @@
                     // Implement your delete logic here
                 });
             });
+            var descriptionElement = document.getElementById('description');
+            
+
+            // Get the description text
+            var description = descriptionElement.textContent;
+
+            // Check if the description length is greater than 100 characters
+            if (description.length > 100) {
+                // If the length is greater than 100, truncate the description
+                var truncatedDescription = description.substring(0, 100);
+                descriptionElement.textContent = truncatedDescription + '...';
+            } else {
+                // If the length is less than or equal to 100, display the full description
+                descriptionElement.textContent = description;
+            }
+
+            function showFullDescription() {
+                // Show the full description when the button is clicked
+                descriptionElement.textContent = description;
+            }
         </script>
     }
 </body>
