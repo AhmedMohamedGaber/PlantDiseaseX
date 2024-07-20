@@ -56,13 +56,6 @@ namespace Admin.PlantDiseaseX.Controllers
         }
 
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var plants = await _unitOfWork.Repository<Plant>().GetAllAsync();
-        //    var mappedplants = _mapper.Map<IReadOnlyList<Plant>, IReadOnlyList<PlantViewModel>>(plants);
-
-        //    return View(mappedplants);
-        //}
 
 
 
@@ -72,32 +65,7 @@ namespace Admin.PlantDiseaseX.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Create(PlantViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-
-        //    if (model.Image != null)
-        //    {
-        //        model.PictureUrl = PictureSettings.UploadFile(model.Image);
-        //    }
-        //    else
-        //    {
-        //        model.PictureUrl = "https://plantdiseasexdashbord.runasp.net/images/plants/DefaultImage.jpg";
-        //    }
-
-        //    var mappedPlant = _mapper.Map<PlantViewModel, Plant>(model);
-        //    await _unitOfWork.Repository<Plant>().AddAsync(mappedPlant);
-        //    await _unitOfWork.Complete();
-
-        //    _toastNotification.AddSuccessToastMessage("Plant Created Successfully");
-        //    return RedirectToAction("Index");
-        //}
-
-
+       
 
 
 
@@ -155,38 +123,7 @@ namespace Admin.PlantDiseaseX.Controllers
 
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(int id, PlantViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-
-        //    if (id != model.Id)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (model.Image != null)
-        //    {
-        //        if (!string.IsNullOrEmpty(model.PictureUrl))
-        //        {
-        //            var fileName = Path.GetFileName(model.PictureUrl);
-        //            PictureSettings.DeleteFile(fileName);
-        //        }
-        //        model.PictureUrl = PictureSettings.UploadFile(model.Image);
-        //    }
-
-        //    var mappedPlant = _mapper.Map<PlantViewModel, Plant>(model);
-        //    _unitOfWork.Repository<Plant>().Update(mappedPlant);
-        //    await _unitOfWork.Complete();
-
-        //    _toastNotification.AddSuccessToastMessage("Plant Updated Successfully");
-        //    return RedirectToAction("Index");
-        //}
-
-
+       
 
 
 
@@ -287,122 +224,3 @@ namespace Admin.PlantDiseaseX.Controllers
 
 
 
-
-//namespace Admin.PlantDiseaseX.Controllers
-//{
-//    public class PlantController : Controller
-//    {
-//        private readonly PlantContext _plantcontext;
-//        private readonly IWebHostEnvironment webHostEnvironment;
-
-//        public PlantController(PlantContext plantContext)
-//        {
-//            _plantcontext = plantContext;
-//        }
-//        public async Task<IActionResult> Index()
-//        {
-
-//            var plants = await _plantcontext.Plants.ToListAsync();
-//            return View(plants);
-//        }
-
-//        public async Task<IActionResult> Create()
-//        {
-
-//            var viewModel = new PlantViewModel
-//            {
-//                PlantCategory = await _plantcontext.PlantCategories.OrderBy(m => m.Name).ToListAsync(),
-//                PlantSeason = await _plantcontext.PlantSeasons.OrderBy(m => m.Name).ToListAsync()
-
-//            };
-//            return View(viewModel);
-//        }
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Create(PlantViewModel model)
-//        {
-
-//          if (!ModelState.IsValid)
-//            {
-//                model.PlantCategory = await _plantcontext.PlantCategories.OrderBy(m => m.Name).ToListAsync();
-//                model.PlantSeason = await _plantcontext.PlantSeasons.OrderBy(m => m.Name).ToListAsync();
-//                return View(model);
-//            }
-
-//            var files = Request.Form.Files;
-//            if (!files.Any())
-//            {
-//                model.PlantCategory = await _plantcontext.PlantCategories.OrderBy(m => m.Name).ToListAsync();
-//                model.PlantSeason = await _plantcontext.PlantSeasons.OrderBy(m => m.Name).ToListAsync();
-
-//                ModelState.AddModelError("Image", "Please select Plant image!");
-//                return View(model);
-//            }
-
-//            var image = files.FirstOrDefault();
-//            var allowedExtenstion =new List<string>() { ".jpg", ".jpeg", ".png", ".ico", ".icon", ".gif", ".svg" };
-
-//            if (!allowedExtenstion.Contains(Path.GetExtension(image.FileName).ToLower()))
-//            {
-//                model.PlantCategory = await _plantcontext.PlantCategories.OrderBy(m => m.Name).ToListAsync();
-//                model.PlantSeason = await _plantcontext.PlantSeasons.OrderBy(m => m.Name).ToListAsync();
-//                ModelState.AddModelError("Image", "Invalid extention only valid extentions");
-
-//                return View(model);
-//            }
-
-//            if(image.Length > 1048576)
-//            {
-//                model.PlantCategory = await _plantcontext.PlantCategories.OrderBy(m => m.Name).ToListAsync();
-//                model.PlantSeason = await _plantcontext.PlantSeasons.OrderBy(m => m.Name).ToListAsync();
-//                ModelState.AddModelError("Image", "Image cannot be more than 1 MB!");
-
-//                return View(model);
-//            }
-//            using var dataStream = new MemoryStream();
-//            var ImageName = UploadedFile(model.Image);
-//            await image.CopyToAsync(dataStream);
-
-//            var plants = new Plant
-//            {
-
-//                Name= model.Name,
-//                PlantCategoryId=model.PlantCategoryId,
-//                PlantSeasonId=model.PlantSeasonId,
-//                Description= model.Description,
-//                season=model.season,
-//                diseases=model.diseases,
-//                treatment=model.treatment,
-//                Properties=model.Properties,
-//                GeneralUse=model.GeneralUse,
-//                MedicalUse=model.MedicalUse,
-//                Warnings=model.Warnings,
-//                PictureUrl =ImageName,
-//            };
-
-//            _plantcontext.Plants.Add(plants);
-//            _plantcontext.SaveChanges();
-
-//            return RedirectToAction(nameof(Index));
-//        }
-
-
-//        private string UploadedFile(IFormFile file)
-//        {
-//            string uniqueFileName = null;
-
-//            if (file != null)
-//            {
-//                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
-//                uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-//                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-//                using (var fileStream = new FileStream(filePath, FileMode.Create))
-//                {
-//                    file.CopyTo(fileStream);
-//                }
-//            }
-//            return uniqueFileName;
-//        }
-//    }
-//}

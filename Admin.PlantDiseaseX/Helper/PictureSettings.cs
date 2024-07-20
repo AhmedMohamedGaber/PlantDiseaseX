@@ -7,51 +7,6 @@ namespace Admin.PlantDiseaseX.Helper
 {
 
 
-    //public static class PictureSettings
-    //{
-    //    private static readonly string BaseUrl = "https://plantdiseasexdashbord.runasp.net/images/plants";
-    //    private static readonly string ApiWwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\plants");
-
-    //    public static string UploadFile(IFormFile file)
-    //    {
-    //        // Ensure the directory exists
-    //        if (!Directory.Exists(ApiWwwrootPath))
-    //        {
-    //            Directory.CreateDirectory(ApiWwwrootPath);
-    //        }
-
-    //        // Set FileName Unique 
-    //        var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
-
-    //        // Get File Path
-    //        var filePath = Path.Combine(ApiWwwrootPath, fileName);
-
-    //        // Save File As Stream
-    //        using (var fs = new FileStream(filePath, FileMode.Create))
-    //        {
-    //            file.CopyTo(fs);
-    //        }
-
-    //        // Return the URL for the saved image
-    //        return $"{BaseUrl}/{fileName}";
-    //    }
-
-    //    public static void DeleteFile(string fileName)
-    //    {
-    //        var filePath = Path.Combine(ApiWwwrootPath, fileName);
-    //        if (File.Exists(filePath))
-    //        {
-    //            File.Delete(filePath);
-    //        }
-    //    }
-    //}
-
-
-
-
-
-
-
 
 
 

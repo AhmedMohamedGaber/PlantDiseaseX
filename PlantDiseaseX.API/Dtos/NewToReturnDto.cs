@@ -8,6 +8,6 @@
         public string NewsPicture { get; set; }
         public DateTime Date { get; set; }
 
-     //   public string FullNewsPictureUrl => !string.IsNullOrEmpty(NewsPicture) ? $"http://plantdiseasexapi.runasp.net/{NewsPicture}" : null;
+   
     }
 }
